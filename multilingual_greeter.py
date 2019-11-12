@@ -7,7 +7,7 @@ lang_dict = {
 }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
-# Example: Key = 1. Value = 'What is your name?\n'.
+# Example: Key = 1. Value = 'What is your name?'.
 name_prompt_dict = {
 }
 
@@ -95,6 +95,6 @@ if __name__ == '__main__':
         print("Invalid selection. Try again.")
         chosen_lang = language_input()
 
-    selected_prompt = get_name_input(name_prompt_dict, chosen_lang)
+    selected_prompt = f"{get_name_input(name_prompt_dict, chosen_lang)} \n"
     chosen_name = name_input(selected_prompt)
     greet(chosen_name, greetings_dict, chosen_lang)

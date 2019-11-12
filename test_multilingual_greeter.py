@@ -44,14 +44,14 @@ class MultilingualGreeterTest(TestCase):
 
     def test_get_name_input(self):
         name_prompt_dict = {
-            1: 'What is your name?\n',
-            2: '¿Cómo te llamas?\n',
-            3: 'Qual é o seu nome?\n'
+            1: 'What is your name?',
+            2: '¿Cómo te llamas?',
+            3: 'Qual é o seu nome?'
         }
 
-        self.assertEqual("What is your name?\n", multilingual_greeter.get_name_input(name_prompt_dict, 1))
-        self.assertEqual("¿Cómo te llamas?\n", multilingual_greeter.get_name_input(name_prompt_dict, 2))
-        self.assertEqual("Qual é o seu nome?\n", multilingual_greeter.get_name_input(name_prompt_dict, 3))
+        self.assertEqual("What is your name?", multilingual_greeter.get_name_input(name_prompt_dict, 1))
+        self.assertEqual("¿Cómo te llamas?", multilingual_greeter.get_name_input(name_prompt_dict, 2))
+        self.assertEqual("Qual é o seu nome?", multilingual_greeter.get_name_input(name_prompt_dict, 3))
 
     @patch('builtins.input', return_value="Harry Potter")
     def test_name_input(self, user_input):
@@ -78,7 +78,7 @@ class MultilingualGreeterTest(TestCase):
         self.assertEqual("Hola Vincent Vega\n", stdout_mock.getvalue())
 
     @patch('sys.stdout', new_callable=StringIO)
-    def test2_greet(self, stdout_mock):
+    def test3_greet(self, stdout_mock):
         greetings_dict = {
             1: 'Hello',
             2: 'Hola',
