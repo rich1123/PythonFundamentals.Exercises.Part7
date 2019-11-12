@@ -5,9 +5,6 @@
 
 ## Exercise 1
 
-![multilingual_greeter](multilingual_greeter_sample.gif)
-
-
 Open the program called *multilingual_greeter.py*
 
 * For each function, remove the line containing the pass statement and implement the functionality described in the docstrings.
@@ -16,4 +13,8 @@ Open the program called *multilingual_greeter.py*
 ```
 python3 -m unittest test_multilingual_greeter.py
 ```
+
+Once all tests are passing, you should be able to run the program.
+
+![multilingual_greeter](multilingual_greeter_sample.gif)
 
