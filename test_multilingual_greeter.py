@@ -34,13 +34,19 @@ class MultilingualGreeterTest(TestCase):
             3: "Portuguese"
         }
 
-        self.assertTrue(multilingual_greeter.language_choice_is_valid(languages, 1))
-        self.assertTrue(multilingual_greeter.language_choice_is_valid(languages, 2))
-        self.assertTrue(multilingual_greeter.language_choice_is_valid(languages, 3))
-        self.assertFalse(multilingual_greeter.language_choice_is_valid(languages, 4))
-        self.assertFalse(multilingual_greeter.language_choice_is_valid(languages, 5))
-        self.assertFalse(multilingual_greeter.language_choice_is_valid(languages, 10))
-        self.assertFalse(multilingual_greeter.language_choice_is_valid(languages, 'PIG LATIN'))
+        test_cases = [
+            (1, True),
+            (2, True),
+            (3, True),
+            (4, False),
+            (5, False),
+            (10, False),
+            ('PIG LATIN', False)
+        ]
+
+        for key, expected in test_cases:
+            with self.subTest(f"{key}, {expected}"):
+                self.assertEqual(expected, multilingual_greeter.language_choice_is_valid(languages, key))
 
     def test_get_name_input(self):
         name_prompt_dict = {
@@ -49,9 +55,9 @@ class MultilingualGreeterTest(TestCase):
             3: 'Qual é o seu nome?'
         }
 
-        self.assertEqual("What is your name?", multilingual_greeter.get_name_input(name_prompt_dict, 1))
-        self.assertEqual("¿Cómo te llamas?", multilingual_greeter.get_name_input(name_prompt_dict, 2))
-        self.assertEqual("Qual é o seu nome?", multilingual_greeter.get_name_input(name_prompt_dict, 3))
+        for key, expected in name_prompt_dict.items():
+            with self.subTest(f"{key} -> {expected}"):
+                self.assertEqual(expected, multilingual_greeter.get_name_input(name_prompt_dict, key))
 
     @patch('builtins.input', return_value="Harry Potter")
     def test_name_input(self, user_input):
@@ -64,6 +70,7 @@ class MultilingualGreeterTest(TestCase):
             2: 'Hola',
             3: 'Olá'
         }
+
         multilingual_greeter.greet("Winston Wolfe", greetings_dict, 1)
         self.assertEqual("Hello Winston Wolfe\n", stdout_mock.getvalue())
 
