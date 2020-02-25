@@ -34,8 +34,8 @@ Extend the functionality from exercise 1 so it meets the following requirements:
 Create a program called *multilingual_greeter_v3.py*
 
 Extend the functionality from exercise 2 to meet the following requirements:
-* Each key in the greetings dictionary is associated with a set rather than a string. 
-* Each set should contain at least 3 greetings per language. 
-* The greet function will select a random item from the set when invoked.
+* Each key in the greetings dictionary is associated with a list rather than a string. 
+* Each list should contain at least 3 greetings per language. 
+* The greet function will select a random item from the list when invoked.
 * Ensure appropriate support for these new features while in admin mode.
 * As always, be sure to include appropriate test coverage. 
