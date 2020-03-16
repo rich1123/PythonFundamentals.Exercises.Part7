@@ -24,25 +24,31 @@ greetings_dict = {
     2: 'Hola ',
     3: 'Hallo '
 }
-#
-#
+
+
 def print_language_options(lang_options: Dict[int, str]) -> None:
-#     """
-#     Given a dictionary, this functions iterates through the values and prints them out.
-#
-#     :param lang_options: A dictionary
-#     Keys are integers representing a language id
-#     Values are strings representing the name of a language
-#     :return: None
-#     """
-#     pass  # remove pass statement and implement me
 
-    for v in lang_options:
-        print(lang_options[v])
+    #     """
+    #     Given a dictionary, this functions iterates through the values and prints them out.
+    #
+    #     :param lang_options: A dictionary
+    #     Keys are integers representing a language id
+    #     Values are strings representing the name of a language
+    #     :return: None
+    #     """
+    #     pass  # remove pass statement and implement me
+    #
+    #     for v in lang_options:
+    #         print(lang_options[v])
 
-#
-#
+    print('Please choose a language: ')
+    for key, value in lang_options.items():
+        print(f'{key}: {value}')
+        # print(lang_options[x])
+
+
 def language_input() -> int:
+
     #     """
     #     This function prompts the user for a language choice.
     #
@@ -51,7 +57,7 @@ def language_input() -> int:
     #     pass  # remove pass statement and implement me
 #
 
-    lang_choice = input("type 1 for English, 2 for Spanish, 3 for German")
+    lang_choice = input("type 1 for English, 2 for Spanish, 3 for German\n")
 
     return int(lang_choice)
 
@@ -88,8 +94,7 @@ def get_name_input(name_prompt_options: Dict[int, str], lang_choice: int) -> str
     # :return:
     # """
     # pass  # remove pass statement and implement me
-
-        # name_prompt_dict{}
+    # name_prompt_dict{}
 
     name_prompt = name_prompt_options.get(lang_choice)
     return name_prompt
@@ -131,8 +136,7 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
     :return:
     """
     lang = greetings_options.get(lang_choice)
-    print(lang + name)
-
+    print(lang + ' ' + name)
 
     # pass  # remove pass statement and implement me
 
